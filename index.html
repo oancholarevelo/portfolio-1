@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oliver - Graphic and UI/UX Designer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+        @font-face {
+            font-family: 'Magilio';
+            src: url('Magilio.ttf');
+        }
+
+        body {
+            font-family: 'Archivo', serif;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Magilio', serif; /* Magilio only for headers and logo */
+        }
+
+        /* Animation for continuous vertical scroll */
+        @keyframes verticalScrollLeft {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-50%); /* Only move half the total height (since we duplicate the content) */
+            }
+        }
+
+        @keyframes verticalScrollRight {
+            0% {
+                transform: translateY(-10%);
+            }
+            100% {
+                transform: translateY(-60%); /* Similar adjustment for right column */
+            }
+        }
+
+        .scroll-container {
+            overflow: hidden;
+            position: relative;
+            height: 800px; /* Same height for visible area */
+        }
+
+        .scroll-column-left,
+        .scroll-column-right {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .scroll-column-left {
+            animation: verticalScrollLeft 10s linear infinite;
+        }
+
+        .scroll-column-right {
+            animation: verticalScrollRight 10s linear infinite;
+        }
+
+        .scroll-item {
+            height: 20rem; /* Height of each rectangle */
+        }
+
+        .hero-section {
+            min-height: 80vh; /* Ensure the hero section is taller */
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Evenly divide the hero section */
+        }
+
+        .feature-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .contact-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .vertical-line {
+            width: 2px;
+            background-color: transparent;
+            transition: height 0.3s ease, background-color 0.3s ease;
+            height: 8rem;
+        }
+
+        .hover-item:hover .vertical-line {
+            background-color: #23120B; /* Dark line when hovered */
+        }
+
+        /* Default background color for the rectangle */
+        .rectangle {
+            background-color: #FDB827;
+            transition: background-color 0.3s ease;
+        }
+
+    </style>
+</head>
+
+<body class="bg-[#F1F1F1] text-[#23120B]">
+
+    <!-- Navbar -->
+    <header class="bg-[#F1F1F1] shadow-sm border-b-2 border-[#23120B] sticky top-0 z-10">
+        <nav class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-3xl logo">Logo</div>
+            <ul class="flex space-x-8 text-lg">
+                <li><a href="#" class="hover:underline">Home</a></li>
+                <li><a href="#" class="hover:underline">About</a></li>
+                <li><a href="#" class="hover:underline">Works</a></li>
+                <li><a href="#" class="hover:underline">Contact</a></li>
+            </ul>
+            <div class="flex space-x-4">
+                <!-- Reduced border-radius for buttons -->
+                <button class="px-4 py-2 border-2 border-[#23120B] text-[#23120B] hover:bg-[#23120B] hover:text-[#F1F1F1] rounded-md">Join</button>
+                <button class="px-4 py-2 bg-[#23120B] text-[#F1F1F1] rounded-md">Start</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content (Hero Section) -->
+    <main class="max-w-7xl mx-auto pt-0 pb-16">
+        <section class="hero-section pb-16">
+            <!-- Left Section -->
+            <div class="flex flex-col justify-center w-[60ch] text-balance">
+                <h1 class="text-7xl mb-4 leading-none">Hi, I'm Oliver! A Graphic and UI/UX Designer</h1>
+                <p class="text-lg mb-8 leading-tight">
+                    Discover the beauty of simplicity through my curated portfolio. Each piece reflects a commitment to minimalist aesthetics and functional design.
+                </p>
+                <div class="flex space-x-4">
+                    <button class="px-6 py-3 bg-[#23120B] text-[#F1F1F1] rounded-md">Explore</button>
+                    <button class="px-6 py-3 border-2 border-[#23120B] text-[#23120B] hover:bg-[#23120B] hover:text-[#F1F1F1] rounded-md">Contact</button>
+                </div>
+            </div>
+            <!-- Right Section (Scrolling Rectangles in Two Columns) -->
+            <div class="scroll-container grid grid-cols-2 gap-4">
+                <!-- Left column with different scroll speed -->
+                <div class="scroll-column-left">
+                    <div class="scroll-item bg-[#21209C]"></div>
+                    <div class="scroll-item bg-[#FDB827]"></div>
+                    <div class="scroll-item bg-[#23120B]"></div>
+                    <div class="scroll-item bg-[#21209C]"></div>
+                    <div class="scroll-item bg-[#FDB827]"></div>
+                    <div class="scroll-item bg-[#23120B]"></div>
+            
+                    <!-- Duplicate the items for smooth scrolling -->
+                    <div class="scroll-item bg-[#21209C]"></div>
+                    <div class="scroll-item bg-[#FDB827]"></div>
+                    <div class="scroll-item bg-[#23120B]"></div>
+                    <div class="scroll-item bg-[#21209C]"></div>
+                    <div class="scroll-item bg-[#FDB827]"></div>
+                    <div class="scroll-item bg-[#23120B]"></div>
+                </div>
+            
+                <div class="scroll-column-right">
+                    <div class="scroll-item bg-[#FDB827]"></div>
+                    <div class="scroll-item bg-[#23120B]"></div>
+                    <div class="scroll-item bg-[#21209C]"></div>
+                    <div class="scroll-item bg-[#FDB827]"></div>
+                    <div class="scroll-item bg-[#23120B]"></div>
+                    <div class="scroll-item bg-[#21209C]"></div>
+            
+                    <!-- Duplicate the items for smooth scrolling -->
+                    <div class="scroll-item bg-[#FDB827]"></div>
+                    <div class="scroll-item bg-[#23120B]"></div>
+                    <div class="scroll-item bg-[#21209C]"></div>
+                    <div class="scroll-item bg-[#FDB827]"></div>
+                    <div class="scroll-item bg-[#23120B]"></div>
+                    <div class="scroll-item bg-[#21209C]"></div>
+                </div>
+            
+            </div>
+        </section>
+        <section class="feature-section py-16 gap-8 items-center">
+            <div class="scroll-item bg-[#21209C] size-[36rem]"></div>
+            <div>
+                <h2 class="font-[Magilio] text-5xl mb-4 leading-none">Embrace simplicity: Discover the essence of minimalist design in every project.</h2>
+                <p class="text-lg mb-8 leading-tight">At the heart of my design philosophy lies a commitment to clarity and purpose. Each creation is a reflection of minimalism, focusing on the essentials to evoke emotion and functionality.</p>
+            </div>
+        </section>
+        <!-- My Values Section -->
+        <section class="max-w-7xl mx-auto grid grid-cols-2 gap-16 items-center py-16">
+            <!-- Top Section: Heading and Description (span both columns) -->
+            <div class="col-span-2 text-center mb-4">
+                <h2 class="text-5xl font-[Magilio] mb-4">My Values</h2>
+                <p class="text-lg max-w-[95ch] mx-auto leading-tight">
+                    At the heart of my design philosophy is a commitment to creating impactful, user-centered experiences that not only look beautiful but also serve a purpose. My work is driven by three core values: Vision, Innovation, and Connection.
+                </p>
+            </div>
+        
+            <!-- Left Section: Values -->
+            <div class="space-y-4">
+                <!-- Vision Section -->
+                <div class="hover-item hover-item-vision flex items-center" data-color="#FDB827">
+                    <div class="vertical-line"></div>
+                    <div class="ml-6">
+                        <h3 class="text-4xl mb-2">Vision</h3>
+                        <p class="text-lg leading-tight">I create designs that inspire and solve real-world problems with thoughtful, intuitive experiences. My goal is to merge beauty with functionality, ensuring every detail resonates with the audience.</p>
+                    </div>
+                </div>
+        
+                <!-- Innovation Section -->
+                <div class="hover-item hover-item-innovation flex items-center" data-color="#23120B">
+                    <div class="vertical-line"></div>
+                    <div class="ml-6">
+                        <h3 class="text-4xl mb-2">Innovation</h3>
+                        <p class="text-lg leading-tight">I explore new trends and technologies, pushing creative boundaries to deliver impactful solutions that stand out in a fast-paced digital world.</p>
+                    </div>
+                </div>
+        
+                <!-- Connection Section -->
+                <div class="hover-item hover-item-connection flex items-center" data-color="#21209C">
+                    <div class="vertical-line"></div>
+                    <div class="ml-6">
+                        <h3 class="text-4xl mb-2">Connection</h3>
+                        <p class="text-lg leading-tight">Design is about people. I build meaningful connections between users and products, fostering trust and lasting relationships through seamless experiences.</p>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Right Section: Rectangle -->
+            <div class="rectangle size-[36rem]"></div> <!-- Initial color as per image -->
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="bg-[#F1F1F1] pt-16 pb-32">
+            <div class="max-w-5xl mx-auto text-center">
+                <h2 class="text-5xl font-[Magilio] mb-12">Testimonials</h2>
+                <div id="carousel" class="relative overflow-hidden">
+                    <!-- Testimonial Slides -->
+                    <div id="testimonial-container" class="flex transition-transform duration-500">
+                        <!-- Slide 1 -->
+                        <div class="min-w-full px-32">
+                            <div class="text-2xl font-[Magilio] leading-tight mb-8">"Working with this designer transformed my vision into reality. Their attention to detail and creativity exceeded my expectations!"</div>
+                            <div class="flex flex-col items-center">
+                                <div class="bg-[#23120B] rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#F1F1F1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 18.378A10 10 0 1112 2a10 10 0 01-6.879 16.378zM12 12a3 3 0 100-6 3 3 0 000 6zm0 2a7 7 0 00-5.194 2.096A7 7 0 0112 22a7 7 0 015.194-3.904A7 7 0 0012 14z" />
+                                    </svg>
+                                </div>
+                                <div class="text-lg">John Doe</div>
+                                <div class="text-md text-gray-500">Creative Director, XYZ Corp.</div>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="min-w-full px-32">
+                            <div class="text-2xl font-[Magilio] leading-tight mb-8">"A creative and detailed designer who always delivers above and beyond! Highly recommended for any creative project."</div>
+                            <div class="flex flex-col items-center">
+                                <div class="bg-[#23120B] rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#F1F1F1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 18.378A10 10 0 1112 2a10 10 0 01-6.879 16.378zM12 12a3 3 0 100-6 3 3 0 000 6zm0 2a7 7 0 00-5.194 2.096A7 7 0 0112 22a7 7 0 015.194-3.904A7 7 0 0012 14z" />
+                                    </svg>
+                                </div>
+                                <div class="text-lg">Jane Smith</div>
+                                <div class="text-md text-gray-500">Marketing Head, ABC Inc.</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Carousel Controls -->
+                    <div class="absolute inset-y-0 left-0 flex items-center">
+                        <button id="prevSlide" class="text-[#23120B] hover:text-[#FDB827]">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="absolute inset-y-0 right-0 flex items-center">
+                        <button id="nextSlide" class="text-[#23120B] hover:text-[#FDB827]">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+        
+                    <!-- Slider Dots -->
+                    <div class="flex justify-center space-x-2 mt-4">
+                        <span id="dot1" class="w-3 h-3 bg-[#23120B] rounded-full"></span>
+                        <span id="dot2" class="w-3 h-3 bg-gray-300 rounded-full"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact -->
+        <section class="contact-section items-center border-2 border-[#23120B] rounded-md">
+            <div class="scroll-item bg-[#23120B] size-[36rem]"></div>
+            <div>
+                <h2 class="font-[Magilio] text-4xl mb-6">Contact Me!</h2>
+                <p class="text-lg mb-6 leading-tight w-[50ch]">Thank you for visiting my portfolio! If you’d like to collaborate, have any questions, or just want to discuss design ideas, I’d love to hear from you. Please use the form below to drop me a message, and I’ll respond as soon as possible.</p>
+                <p class="text-lg mb-6 leading-tight">Let’s create something amazing together!</p>
+                <div>
+                    <form action="#" method="POST" class="flex items-center space-x-2">
+                        <input type="email" name="email" placeholder="Enter your email" required class="p-2 border-2 border-[#23120B] rounded-md w-2/3">
+                        <button type="submit" class="bg-[#23120B] hover:bg-[#1e1916] text-[#F1F1F1] py-2.5 px-8 rounded-md transition-colors">Sign Up</button>
+                    </form>
+                    <p class="text-xs mt-4 text-gray-500">By clicking Sign Up you're confirming that you agree with my Terms and Conditions.</p>
+                </div>
+            </div>
+        </section>        
+        
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="text-[#23120B] py-16">
+        <!-- Footer Grid with Columns 1, 2, 3 -->
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 justify-between items-center border-b border-[#23120B] pb-12">
+            <!-- Column 1: Logo and Short Description (Left-aligned) -->
+            <div class="text-left">
+                <h3 class="text-3xl font-[Magilio]">Logo</h3>
+            </div>
+    
+            <!-- Column 2: Navigation Links (Centered) -->
+            <div class="flex space-x-8 justify-center">
+                <a href="#" class="hover:underline text-lg">About</a>
+                <a href="#" class="hover:underline text-lg">Services</a>
+                <a href="#" class="hover:underline text-lg">Works</a>
+                <a href="#" class="hover:underline text-lg">FAQs</a>
+                <a href="#" class="hover:underline text-lg">Contact</a>
+            </div>
+    
+            <!-- Column 3: Social Media Icons (Right-aligned) -->
+            <div class="flex space-x-2 justify-end">
+                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="#23120B" d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95"></path></svg></a>
+                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="#23120B" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3"></path></svg></a>
+                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 1024 1024"><path fill="#23120B" fill-rule="evenodd" d="M921 912L601.11 445.745l.546.437L890.084 112h-96.385L558.738 384L372.15 112H119.367l298.648 435.31l-.036-.037L103 912h96.385l261.222-302.618L668.217 912zM333.96 184.727l448.827 654.546h-76.38l-449.19-654.546z"></path></svg></a>
+                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="#23120B" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"></path></svg></a>
+                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="#23120B" d="M16.6 5.82s.51.5 0 0A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6c0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64c0 3.33 2.76 5.7 5.69 5.7c3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48"></path></svg></a>
+            </div>
+        </div>
+    
+        <!-- Footer Bottom -->
+        <div class="flex justify-between items-center pt-5 text-md mx-auto max-w-screen-lg">
+            <p class="m-0">&copy; 2024 Oliver. All rights reserved.</p>
+            <div class="flex space-x-5">
+                <a href="#" class="text-primary text-base no-underline hover:underline">Privacy Policy</a>
+                <a href="#" class="text-primary text-base no-underline hover:underline">Terms of Service</a>
+                <a href="#" class="text-primary text-base no-underline hover:underline">Cookies Settings</a>
+            </div>
+        </div>
+
+
+
+    </footer>
+    
+
+
+    <script>
+        // JavaScript to handle hover effect on the sections
+        const hoverItems = document.querySelectorAll('.hover-item');
+        const rectangle = document.querySelector('.rectangle');
+
+        hoverItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                // Get the color from the data-color attribute
+                const color = item.getAttribute('data-color');
+                rectangle.style.backgroundColor = color;
+            });
+
+            item.addEventListener('mouseleave', () => {
+                // Reset to default color when mouse leaves
+                rectangle.style.backgroundColor = '#FDB827'; // Default color
+            });
+        });
+    </script>
+    <script>
+        const testimonialContainer = document.getElementById('testimonial-container');
+        const dots = [document.getElementById('dot1'), document.getElementById('dot2')];
+        let currentIndex = 0;
+    
+        // Update Slide
+        function updateSlide(index) {
+            currentIndex = index;
+            testimonialContainer.style.transform = `translateX(-${index * 100}%)`;
+            
+            // Update dots
+            dots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.remove('bg-gray-300');
+                    dot.classList.add('bg-[#23120B]');
+                } else {
+                    dot.classList.remove('bg-[#23120B]');
+                    dot.classList.add('bg-gray-300');
+                }
+            });
+        }
+    
+        // Next Slide
+        document.getElementById('nextSlide').addEventListener('click', () => {
+            let nextIndex = (currentIndex + 1) % dots.length;
+            updateSlide(nextIndex);
+        });
+    
+        // Previous Slide
+        document.getElementById('prevSlide').addEventListener('click', () => {
+            let prevIndex = (currentIndex - 1 + dots.length) % dots.length;
+            updateSlide(prevIndex);
+        });
+    
+        // Auto Slide
+        setInterval(() => {
+            let nextIndex = (currentIndex + 1) % dots.length;
+            updateSlide(nextIndex);
+        }, 5000); // Change every 5 seconds
+    </script>
+
+</body>
+
+</html>
